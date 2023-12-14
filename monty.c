@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	if (file ==NULL)
+	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
@@ -31,6 +31,14 @@ int main(int argc, char *argv[])
 
 	while (fscanf(file, "%s", opcode) != EOF)
 	{
+		if (opcode[0] == '#')
+		{
+			char c;
+			while ((c = fgetc(file)) != EOF && c != '\n')
+				;
+			line_number++;
+			continue;
+		}
 		if (_strcmp(opcode, "push") == 0)
 		{
 			char arg[100];

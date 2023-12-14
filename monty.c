@@ -13,13 +13,15 @@
 int main(int argc, char *argv[])
 {
 	unsigned int line_number = 1;
+	FILE *file = fopen(argv[1], "r");
+	stack_t *stack = NULL;
+        char opcode[100];
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-
-	FILE *file = fopen(argv[1], "r");
 
 	if (file ==NULL)
 	{
@@ -27,21 +29,17 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	stack_t *stack = NULL;
-
-	char opcode[100];
-	int argument;
-
 	while (fscanf(file, "%s", opcode) != EOF)
 	{
 		if (_strcmp(opcode, "push") == 0)
 		{
-			if (fscanf(file, "%d", &argument) == 0)
+			char arg[100];
+			if (fscanf(file, "%s", arg) == 0)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
 			}
-			push(&stack, argument);
+			push(&stack, arg);
 		}
 		else if (_strcmp(opcode, "pall") == 0)
 		{

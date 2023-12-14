@@ -31,7 +31,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push(stack_t **stack, int data);
+void push(stack_t **stack, char *arg);
 void pall(stack_t **stack);
 void pint(stack_t **stack);
 void pop(stack_t **stack);
@@ -39,5 +39,6 @@ void swap(stack_t **stack);
 void add(stack_t **stack);
 void nop(stack_t **stack);
 int _strcmp(char *s1, char *s2);
+int _atoi(char *s);
 
 #endif /* MONTY_H */

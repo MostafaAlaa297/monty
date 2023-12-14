@@ -11,8 +11,9 @@
  * Return: Nothing
  */
 
-void push(stack_t **stack, int data)
+void push(stack_t **stack, char *arg)
 {
+	int value = _atoi(arg);
 	stack_t *new_node = malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
@@ -21,7 +22,7 @@ void push(stack_t **stack, int data)
 		exit(EXIT_FAILURE);
 	}
 
-	new_node->n = data;
+	new_node->n = value;
 	new_node->prev = NULL;
 	new_node->next = *stack;
 

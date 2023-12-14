@@ -6,5 +6,5 @@
  * Return: Nothing
  */
 
-void nop()
+void nop(void)
 {}

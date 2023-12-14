@@ -5,8 +5,7 @@
 /**
  * push - A function to add a new element to the stack
  * @stack: The stack
- * @data: The data to make operations on
- * @line_number: The number of the line to track errors
+ * @arg: The string to make operations on
  *
  * Return: Nothing
  */
@@ -32,7 +31,8 @@ void push(stack_t **stack, char *arg)
 }
 
 /**
- * pall - Prints all the values on the stack, starting from the top of the stack
+ * pall - Prints all the values on the stack,
+ * starting from the top of the stack
  * @stack: The stack to make operations on
  *
  * Return: Nothing
